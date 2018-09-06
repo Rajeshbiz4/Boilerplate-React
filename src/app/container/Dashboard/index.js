@@ -5,12 +5,12 @@ import { withRouter } from "react-router-dom";
 import { parse, stringify } from 'query-string'
 import { fetchUserAction } from './logic'
 import { Loader, NoDataFound } from '../../components'
+import User from '../user'
 
 const styleObj = {
   border: 'solid 1px #ddd',
   padding: '10px',
-  margin: '10px',
-  'border-radius': '5px'
+  margin: '10px'
 }
 
 class DashBoard extends Component {
@@ -39,11 +39,22 @@ class DashBoard extends Component {
        })
     }
   }
+
+  renderList(){
+    console.log('renderList', this.props.gene.data)
+    if(this.props.gene.flag){
+    return this.props.gene.data.map((item,index) => (
+      <User key={index} item={item}/>
+    ))
+  }
+  return null
+  }
   render() {
     return (
       <div style={styleObj}>
         <Loader loading={this.props.gene.loading} error={this.props.gene.error}>
-           YO
+          Total Results : 260 
+          { this.renderList()}
         </Loader>
         </div>
     )
@@ -51,7 +62,7 @@ class DashBoard extends Component {
 }
 
 DashBoard.propTypes = {
-  geneAction: PropTypes.func.isRequired,
+  geneAction: PropTypes.func,
   gene: PropTypes.object.isRequired,
 }
 

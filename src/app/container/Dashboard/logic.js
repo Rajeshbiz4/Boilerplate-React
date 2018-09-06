@@ -14,7 +14,8 @@ const USER_FAILURE = 'USER_FAILURE'
 const INITIAL_STATE = {
   data: [],
   loading: false,
-  error: false
+  error: false,
+  flag:false
 }
 
 export const fetchUserAction = payload => ({
@@ -46,7 +47,8 @@ export function geneReducer(state = INITIAL_STATE, action) {
         ...state,
         data: [],
         loading: true,
-        error: false
+        error: false,
+        flag:false
       }
     }
     case USER_SUCCESS: {
@@ -54,7 +56,8 @@ export function geneReducer(state = INITIAL_STATE, action) {
         ...state,
         data: action.payload.response,
         loading: false,
-        error: false
+        error: false,
+        flag:true
       }
     }
     case USER_FAILURE: {
@@ -62,7 +65,8 @@ export function geneReducer(state = INITIAL_STATE, action) {
         ...state,
         data: [],
         loading: false,
-        error: false
+        error: false,
+        flag: false
       }
     }
     default:
