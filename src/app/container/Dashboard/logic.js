@@ -5,12 +5,11 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
 import 'rxjs/add/observable/of'
 import { apiCall } from '../../utils'
-// import { ERROR } from '../common/container/Status/logic'
 export const ERROR = 'ERROR'
 
-const GENE_SUMMERY = 'GENE_SUMMERY'
-export const GENE_SUMMERY_SUCCESS = 'GENE_SUMMERY_SUCCESS'
-const GENE_SUMMERY_FAILURE = 'GENE_SUMMERY_FAILURE'
+const USER = 'USER'
+export const USER_SUCCESS = 'USER_SUCCESS'
+const USER_FAILURE = 'USER_FAILURE'
 
 const INITIAL_STATE = {
   data: [],
@@ -18,24 +17,22 @@ const INITIAL_STATE = {
   error: false
 }
 
-export const geneAction = payload => ({
-  type: GENE_SUMMERY,
+export const fetchUserAction = payload => ({
+  type: USER,
   payload
 })
 
 const geneSuccess = payload => ({
-  type: GENE_SUMMERY_SUCCESS,
+  type: USER_SUCCESS,
   payload
 })
 
-
-const url = 'https://api.github.com/users/'
 export const geneEpic = action$ => action$
-  .ofType(GENE_SUMMERY)
-  .mergeMap(action => staticAjax(apiCall(`${url}${action.payload}`, 'GET'))
+  .ofType(USER)
+  .mergeMap(action => staticAjax(apiCall(`https://api.github.com/users?q=${action.payload.q}`, 'GET'))
     .map(response => geneSuccess(response))
     .catch(error => Observable.of({
-      type: GENE_SUMMERY_FAILURE,
+      type: USER_FAILURE,
       payload: error
     }, {
         type: ERROR,
@@ -43,9 +40,8 @@ export const geneEpic = action$ => action$
       })))
 
 export function geneReducer(state = INITIAL_STATE, action) {
-  console.log(action.payload)
   switch (action.type) {
-    case GENE_SUMMERY: {
+    case USER: {
       return {
         ...state,
         data: [],
@@ -53,7 +49,7 @@ export function geneReducer(state = INITIAL_STATE, action) {
         error: false
       }
     }
-    case GENE_SUMMERY_SUCCESS: {
+    case USER_SUCCESS: {
       return {
         ...state,
         data: action.payload.response,
@@ -61,7 +57,7 @@ export function geneReducer(state = INITIAL_STATE, action) {
         error: false
       }
     }
-    case GENE_SUMMERY_FAILURE: {
+    case USER_FAILURE: {
       return {
         ...state,
         data: [],
