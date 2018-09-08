@@ -113,3 +113,17 @@ input {
   width: 94%;
   height: 35px;
 }
+img {
+  border-radius: 60px;
+}
+
+body {
+  background-color: #e3e3e3;
+}
+
+.react-sanfona {
+  margin-bottom: 21px;
+  background: #fff;
+  width: 74.45%;
+  margin-left: 9%;
+}

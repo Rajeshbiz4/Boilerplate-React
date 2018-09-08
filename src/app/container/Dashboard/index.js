@@ -8,7 +8,6 @@ import { Loader, NoDataFound } from '../../components'
 import User from '../user'
 
 const styleObj = {
-  border: 'solid 1px #ddd',
   padding: '10px',
   margin: '10px'
 }
