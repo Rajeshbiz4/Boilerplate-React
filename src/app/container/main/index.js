@@ -6,6 +6,10 @@ import Home from '../home';
 import HowItWorks from '../howItworks';
 import Blog from '../Blog';
 import WriteForUS from '../writeforus';
+import Terms from '../StaticPages/terms';
+import Privacy from '../StaticPages/privacy';
+import AboutUs from '../StaticPages/about';
+import ContactUS from '../StaticPages/contact';
 
 import {
   BrowserRouter as Router,
@@ -35,6 +39,19 @@ class Main extends Component {
             </Route>
             <Route path="/writeforus">
             <WriteForUS />
+            </Route>
+            <Route path="/terms">
+            <Terms />
+            </Route>
+
+            <Route path="/privacy">
+            <Privacy />
+            </Route>
+            <Route path="/aboutus">
+            <AboutUs />
+            </Route>
+            <Route path="/contactus">
+            <ContactUS />
             </Route>
             </Switch>
          </Router>
