@@ -1,41 +1,42 @@
 import React, { Component } from 'react'
-import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import { withRouter } from "react-router-dom";
-// import { NoDataFound } from '../../components'
 
 
-const options = ['one', 'two', 'three']
-const defaultOption = options[0]
 class Header extends Component {
   constructor(){
       super();
       this.state = {
         inputValue: 'yo',
       };
-      this._onSelect = this._onSelect.bind(this);
-      this._handleKeyPress = this._handleKeyPress.bind(this);
+      
   }
 
-  _onSelect(){
-      console.log('_onSelect')
-  }
+  
 
-  _handleKeyPress(e) {
-    if (e.key === 'Enter') {
-        this.props.history.push(`?q=${e.target.value}`);
-    }
-  }
+ 
 
   render() {
     return (
-         <header className="App-header">
-         <div className='header-container'>
-         <Dropdown options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select an option" />
-         <div className="Dropdown-root"><input type='text' className='Dropdown-control' onKeyPress={this._handleKeyPress} /></div>
-         {/* <input type='text' /> */}
-         </div>
-         </header>
+        //  <div className='App-header'>
+        <div class="header">
+  {/* <a href="#default" class="logo">CompanyLogo</a> */}
+  <div class="logo-block">
+					<a title="Net Pro Referral" href="https://www.netproreferral.com/"><img alt="" src="https://dcywhuojnzfz0.cloudfront.net/assets/images/logo.svg" class="initial loading" data-was-processed="true" /></a>
+				</div>
+  <div class="header-right">
+    <a class="active" href="/">Home</a>
+    <a href="/howitworks">How it Works</a>
+    <a href="/blog">Blog</a>
+    <a href="/writeforus">Write For Us</a> 
+  </div>
+  {/* <div class="join-us-block">
+														<span>Get Referred by your mentors, peers and other experts</span>
+						<a class="claim-pop effect-main effect-color-hover" href="javascript:void(0);">  Claim Your Profile</a>
+						<a  class="userlink login-pop" href="javascript:void(0);"> Login</a>
+																		</div> */}
+</div>
+        //  </div>
     )
   }
 }

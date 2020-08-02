@@ -51,8 +51,8 @@ class DashBoard extends Component {
     return (
       <div style={styleObj}>
         <Loader loading={this.props.gene.loading} error={this.props.gene.error}>
-          Total Results : 260
-          {this.renderList()}
+          {/* Total Results : 260
+          {this.renderList()} */}
         </Loader>
       </div>
     )
