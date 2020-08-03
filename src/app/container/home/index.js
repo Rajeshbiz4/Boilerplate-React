@@ -14,8 +14,19 @@ class Home extends Component {
   render() {
     return (
         <Fragment >
+          {/* <div className="" id="variant-c">
+             <div className="netpro-directory">
+                  <div className="adv-dir-head">Be Found on our map</div>
+                  <div className="calltoaction-reg calltoaction-center bfoundbtn">
+                      <a className="claim-pop effect-main effect-ad-hover" href="javascript:void(0);">Claim Your Profile</a>
+                      </div>
+                      </div>
+                      <div onclick="searchTerm();" className="variantc-map">
+                          <img alt="" src="https://www.netproreferral.com/assets/images/variant-c.jpg" className="initial loading" data-was-processed="true" />
+                          </div>
+                          </div> */}
 
-   <div data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/banner2.jpg" class="slider-bg lazy initial" data-was-processed="true" style={{ height : '620px;', backgroundImage : 'url(&quot;https://dcywhuojnzfz0.cloudfront.net/assets/images/banner2.jpg&quot;)'}} >
+   <div data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/banner2.jpg" class="slider-bg lazy initial" data-was-processed="true" style={{ position: '', height : '620px;', backgroundImage : 'url(&quot;https://dcywhuojnzfz0.cloudfront.net/assets/images/banner2.jpg&quot;)'}} >
 		<div class="slider-block-main">
 			<ul class="bxslider">
 				<li class="main-banner-img" style={{ backgroundImage : 'url(https://dcywhuojnzfz0.cloudfront.net/assets/images/banner2.jpg)'}} ></li>
@@ -46,17 +57,7 @@ class Home extends Component {
 		</section>
 	</div>
  
-        {/* <div className="" id="variant-c">
-             <div className="netpro-directory">
-                  <div className="adv-dir-head">Be Found on our map</div>
-                  <div className="calltoaction-reg calltoaction-center bfoundbtn">
-                      <a className="claim-pop effect-main effect-ad-hover" href="javascript:void(0);">Claim Your Profile</a>
-                      </div>
-                      </div>
-                      <div onclick="searchTerm();" className="variantc-map">
-                          <img alt="" src="https://www.netproreferral.com/assets/images/variant-c.jpg" className="initial loading" data-was-processed="true" />
-                          </div>
-                          </div> */}
+        
      </Fragment>
     )
   }

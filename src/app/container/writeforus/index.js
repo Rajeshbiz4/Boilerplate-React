@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import 'react-dropdown/style.css'
 import { withRouter } from "react-router-dom";
 
@@ -13,9 +13,8 @@ class WriteForUS extends Component {
 
   render() {
     return (
-         <div style={{ color : 'red'}}>
-            <p>WriteForUS</p>
-         </div>
+      <h1>Coming soon</h1>
+         
     )
   }
 }
