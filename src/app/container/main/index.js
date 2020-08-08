@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Header from '../header'
-import DashBoard from '../Dashboard'
 import FooterPage from '../footer';
 import Home from '../home';
 import HowItWorks from '../howItworks';
@@ -14,8 +13,7 @@ import ContactUS from '../StaticPages/contact';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 class Main extends Component {

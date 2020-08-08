@@ -19,9 +19,9 @@ class ContactUS extends Component {
 		<div class="banner-inner">
 			<h1 class="banner-heading">Contact Us</h1>
 			<div class="heading-content-right">
-				<a href="https://www.netproreferral.com/" class="active">Home</a>
+				<a class="active">Home</a>
 				<span>&nbsp;&gt;&nbsp;</span>
-				<a href="javascript:void(0);">Contact Us</a>
+				<a>Contact Us</a>
 			</div>
 		</div>
 	</div>
@@ -51,7 +51,7 @@ class ContactUS extends Component {
 					</ul>
 				</div>
 				<div class="left-contact">
-					<form action="" method="Post" id="contact-us-form" name="contact-us-form" role="form" novalidate="novalidate">
+					<form >
 					<div class="field-strem">
 						<div class="half">
 							<div class="contact-heading">Name<span style={{ color : 'red'}} >*</span></div>
@@ -76,7 +76,7 @@ class ContactUS extends Component {
 					</div>
 					<div class="field-strem captcha-contact">
 						<div class="half">
-							<div id="recaptchaContact"><div style={{ width : '304px', height : '78px' }} ><div><iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdnPSoUAAAAACqzNrEuhYORmuH_mVCvtM2dm0H5&amp;co=aHR0cHM6Ly93d3cubmV0cHJvcmVmZXJyYWwuY29tOjQ0Mw..&amp;hl=en&amp;v=AFBwIe6h0oOL7MOVu88LHld-&amp;theme=light&amp;size=normal&amp;cb=xbpowdm6w8n" width="304" height="78" role="presentation" name="a-yqs4xovy3nat" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response-1" name="g-recaptcha-response" class="g-recaptcha-response" style={{ width : '250px', height : '40px', border : 'solid 1px rgb(193, 193, 193)', margin : '10px 20px', padding : '0px', resize : 'none', display : 'none'}} ></textarea></div></div>
+							<div id="recaptchaContact"><div style={{ width : '304px', height : '78px' }} ><div><iframe title="recaptchaContact1" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdnPSoUAAAAACqzNrEuhYORmuH_mVCvtM2dm0H5&amp;co=aHR0cHM6Ly93d3cubmV0cHJvcmVmZXJyYWwuY29tOjQ0Mw..&amp;hl=en&amp;v=AFBwIe6h0oOL7MOVu88LHld-&amp;theme=light&amp;size=normal&amp;cb=xbpowdm6w8n" width="304" height="78" role="presentation" name="a-yqs4xovy3nat" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response-1" name="g-recaptcha-response" class="g-recaptcha-response" style={{ width : '250px', height : '40px', border : 'solid 1px rgb(193, 193, 193)', margin : '10px 20px', padding : '0px', resize : 'none', display : 'none'}} ></textarea></div></div>
 							<input type="hidden" class="recatcha_check_contact" name="recatcha_check_contact" value="" />
 						</div>
 						<div class="half">

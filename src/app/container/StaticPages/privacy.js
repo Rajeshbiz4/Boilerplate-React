@@ -24,7 +24,7 @@ class Privacy extends Component {
 			<div class="heading-content-right">
 				<a href="https://www.netproreferral.com/" class="active">Home</a>
 				<span>&nbsp;&gt;&nbsp;</span>
-				<a href="javascript:void(0);">Privacy Policy</a>
+				<a >Privacy Policy</a>
 			</div>
 		</div>
 	</div>

@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import 'react-dropdown/style.css'
-import { withRouter } from "react-router-dom";
 
 class HowItWorks extends Component {
 
@@ -22,18 +21,18 @@ class HowItWorks extends Component {
           <div class="heading-content-right">
             <a href="https://www.netproreferral.com/" class="active">Home</a>
             <span>&nbsp;&gt;&nbsp;</span>
-            <a href="javascript:void(0);">How It Works</a>
+            <a >How It Works</a>
           </div>
         </div>
         <div class="visitoe-member-tabbing">
           <ul>
             <li class="" id="memberTab" className={ this.state.forMembrs ? 'active' : ''} onClick={() =>this.setState({ forMembrs : true })}>
-              <a href="javascript:void(0);">For members</a>
+              <a  >For members</a>
               <div class="member-tab-txt">Registered Users</div>
               <div class="arw-btm"></div>
             </li>
             <li id="visitorTab" className={ this.state.forMembrs ? '' : 'active'} onClick={() =>this.setState({ forMembrs : false })}>
-              <a href="javascript:void(0);">For visitors</a>
+              <a  >For visitors</a>
               <div class="member-tab-txt">Guest Users</div>
               <div class="arw-btm"></div>
             </li>
@@ -53,7 +52,7 @@ class HowItWorks extends Component {
 							<h2 class="heading-all">Claim your profile</h2>
 							<p class="ref-tab-text">Display your skills, experience, expertise and other details to become a member. You can request referrals from existing members or invite your colleagues, mentors or other experts to join the network and refer you.</p>
 																<div class="calltoaction-reg">
-										<a class="claim-pop effect-main effect-ad-hover" href="javascript:void(0);">  Claim Your Profile</a>
+										<a class="claim-pop effect-main effect-ad-hover"  >  Claim Your Profile</a>
 									</div>
 													</div>
 						<div class="ref-right-grid">
@@ -85,7 +84,7 @@ class HowItWorks extends Component {
 				<p class="ref-tab-text ref-tab-text-center">It is meant to be a very closely knitted community of experts with thousands of experts getting to know each other and becoming more available to newer opportunities.</p>
 								
 					<div class="calltoaction-reg calltoaction-center">
-						<a class="claim-pop effect-main effect-ad-hover" href="javascript:void(0);">  Find new opportunities</a>
+						<a class="claim-pop effect-main effect-ad-hover"  >  Find new opportunities</a>
 					</div>
 									<figure>
 						<img alt="" data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/grid3.png" class="loaded" src="https://dcywhuojnzfz0.cloudfront.net/assets/images/grid3.png" data-was-processed="true" />
@@ -101,7 +100,7 @@ class HowItWorks extends Component {
 						<h2 class="heading-all">Explore your professional network</h2>
 						<p class="ref-tab-text">Get to know more people and get more accessible to clients and referrals. Get connected with other professionals in your field and get referred based on your skills, expertise and experience. No fake or biased negative reviews are allowed.</p>
 													<div class="calltoaction-reg">
-								<a class="claim-pop effect-main effect-ad-hover" href="javascript:void(0);">  get more clients and referrals</a>
+								<a class="claim-pop effect-main effect-ad-hover"  >  get more clients and referrals</a>
 							</div>
 											</div>
 					<div class="ref-right-grid-diff">
@@ -121,7 +120,7 @@ class HowItWorks extends Component {
 						<p class="ref-tab-text">Our search result listings are according to your profile content and the strength of the profiles of the professionals that refer you. The quality and quantity of your references can be viewed by searchers.</p>
 												
 							<div class="calltoaction-reg">
-								<a class="claim-pop effect-main effect-ad-hover" href="javascript:void(0);">  be found more</a>
+								<a class="claim-pop effect-main effect-ad-hover"  >  be found more</a>
 							</div>
 											</div>
 					<div class="ref-right-grid-diff">
@@ -153,7 +152,7 @@ class HowItWorks extends Component {
 					</figure>
 									
 						<div class="calltoaction-reg calltoaction-center">
-							<a class="claim-pop effect-main effect-ad-hover" href="javascript:void(0);">  Claim Your Profile</a>
+							<a class="claim-pop effect-main effect-ad-hover"  >  Claim Your Profile</a>
 						</div>
 									</div>
 			</section>

@@ -23,7 +23,7 @@ class AboutUs extends Component {
                 <div class="heading-content-right">
                     <a href="https://www.netproreferral.com/" class="active">Home</a>
                     <span>&nbsp;&gt;&nbsp;</span>
-                    <a href="javascript:void(0);">About Us</a>
+                    <a >About Us</a>
                 </div>
             </div>
         </div>
