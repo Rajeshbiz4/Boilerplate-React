@@ -3154,7 +3154,7 @@ td:focus {
   padding: 10px;
   background-color: #ff6b6b;
   color: white;
-  min-height: 50px;
+  min-height: 30px;
   width: 78%;
   text-align: center;
   margin: 0 auto;
@@ -3166,7 +3166,7 @@ td:focus {
   padding: 10px;
   background-color: #6cb68a;
   color: white;
-  min-height: 50px;
+  min-height: 30px;
   width: 78%;
   text-align: center;
   margin: 0 auto;
@@ -3204,5 +3204,10 @@ td:focus {
 .inputDashboard {
   height: 46px !important;
   /* background: #fff !important; */
+}
+.ReactModal__Content--after-open {
+  margin-left: -61.5px;
+  /* overflow: hidden; */
+  top: 25px !important;
 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Header from '../header'
+import DashBoard from '../Dashboard'
 import FooterPage from '../footer';
 import Home from '../home';
 import HowItWorks from '../howItworks';
@@ -13,7 +14,8 @@ import ContactUS from '../StaticPages/contact';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Link
 } from "react-router-dom";
 
 class Main extends Component {
@@ -26,7 +28,9 @@ class Main extends Component {
          {/* <DashBoard /> */}
          <Router>
          <Switch>
-          <Route path="/">
+           
+
+          <Route exact path="/">
             <Home />
           </Route>
           <Route path="/howitworks">

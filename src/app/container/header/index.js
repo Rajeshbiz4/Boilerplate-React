@@ -27,12 +27,26 @@ import Modal from 'react-modal';
    console.log("HEader",nextProps.forgotData);
   }
 
+  doHideScroll = () => {
+	document.body.style.overflow = "hidden";
+  }
+
+  onPopupClose = () => {
+	this.setState({
+		showLogin : false,
+		showForgot : false,
+		showSignup : false
+	  }, () => {
+		  document.body.style.overflow = "scroll";
+	  })
+  }
+
   showLoginPopup = () => {
     this.setState({
       showLogin : true,
       showForgot : false,
       showSignup : false
-    })
+    }, () => this.doHideScroll())
   }
 
   showForgotPopup = () => {
@@ -40,7 +54,7 @@ import Modal from 'react-modal';
       showLogin : false,
       showForgot : true,
       showSignup : false
-    })
+    }, () => this.doHideScroll())
   }
   
   showSignupPopup = () => {
@@ -48,7 +62,7 @@ import Modal from 'react-modal';
       showLogin : false,
       showForgot : false,
       showSignup : true
-    })
+    }, () => this.doHideScroll())
   }
 
   onChange = e => {
@@ -117,7 +131,7 @@ import Modal from 'react-modal';
           <div  className="join-us-block">
             <span>Get Referred by your mentors, peers and other experts</span>
               <a className="claim-pop effect-main effect-color-hover"  >  Claim Your Profile</a>
-	<a className="userlink login-pop" onClick={() =>this.setState({ showLogin : true})}> {""}Login</a>
+	<a className="userlink login-pop" onClick={() => this.showLoginPopup() }> {""}Login</a>
                                       </div>
           <div className="arrow-up-link">
 	<a>{""}</a>
@@ -142,7 +156,7 @@ import Modal from 'react-modal';
 							<div  className="icon-inner"></div>
 						</div>
 					</div>
-					<img onClick={() => this.setState({ showLogin : false })}  className="cross-pop initial loaded" alt="Close" data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" data-was-processed="true" />
+					<img onClick={() => this.onPopupClose()}  className="cross-pop initial loaded" alt="Close" data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" data-was-processed="true" />
 					{/* <form> */}
 						<div  className="login-form">
 							<h2><span  className="join-first">Login</span><span  className="join-second">Login With</span></h2>
@@ -228,7 +242,7 @@ import Modal from 'react-modal';
 							<div  className="icon-inner"></div>
 						</div>
 					</div>
-					<img alt="Close" onClick={() => {this.setState({ showForgot : false }, () => this.onForgotClose)}}  className="cross-pop initial loaded" data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" data-was-processed="true" />
+					<img alt="Close" onClick={() => {this.setState({ showForgot : false }, () => {this.onForgotClose(); this.onPopupClose();})}}  className="cross-pop initial loaded" data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" data-was-processed="true" />
 					{/* <form> */}
 						{ this.props.forgotData.flag && this.props.forgotData.data.status === 'FAIL' ? <div class="alert-error">
 						<span class="closebtn" onClick={this.onForgotClose}>&times;</span> 
@@ -290,7 +304,7 @@ import Modal from 'react-modal';
 								<div    className="icon-inner sign-up"></div>
 							</div>
 						</div>
-				<img    className="cross-pop initial loaded" onClick={() => this.setState({ showSignup : false })} alt="Close" data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" data-was-processed="true" />
+				<img    className="cross-pop initial loaded" onClick={() => this.onPopupClose()} alt="Close" data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" data-was-processed="true" />
 				<form >
 					<input type="hidden" id="segmentReg2" name="segmentReg2" value="" />
 					<input type="hidden" id="segmentReg1" name="segmentReg1" value="professionals" />
