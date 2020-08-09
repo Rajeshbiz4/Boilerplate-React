@@ -29,11 +29,11 @@ class WriteForUS extends Component {
 								<div class="blog-liking blog-detail-liking">
 									<ul>
 										<li><div id="post-ratings-1592" class="post-ratings" itemscope="" itemtype="http://schema.org/Article" data-nonce="5570d00fd9">
-                      <img id="rating_1592_1" src="https://www.netproreferral.com/blog/wp-content/plugins/wp-postratings/images/stars/rating_on.gif" alt="1 Star" title="1 Star" onmouseover="current_rating(1592, 1, '1 Star');" onmouseout="ratings_off(4, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style={{ cursor: 'pointer', border : '0px'}} />
-                      <img id="rating_1592_2" src="https://www.netproreferral.com/blog/wp-content/plugins/wp-postratings/images/stars/rating_on.gif" alt="2 Stars" title="2 Stars" onmouseover="current_rating(1592, 2, '2 Stars');" onmouseout="ratings_off(4, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style={{ cursor: 'pointer', border : '0px'}} />
-                        <img id="rating_1592_3" src="https://www.netproreferral.com/blog/wp-content/plugins/wp-postratings/images/stars/rating_on.gif" alt="3 Stars" title="3 Stars" onmouseover="current_rating(1592, 3, '3 Stars');" onmouseout="ratings_off(4, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style={{ cursor: 'pointer', border : '0px'}} />
-                          <img id="rating_1592_4" src="https://www.netproreferral.com/blog/wp-content/plugins/wp-postratings/images/stars/rating_on.gif" alt="4 Stars" title="4 Stars" onmouseover="current_rating(1592, 4, '4 Stars');" onmouseout="ratings_off(4, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style={{ cursor: 'pointer', border : '0px'}} />
-                            <img id="rating_1592_5" src="https://www.netproreferral.com/blog/wp-content/plugins/wp-postratings/images/stars/rating_off.gif" alt="5 Stars" title="5 Stars" onmouseover="current_rating(1592, 5, '5 Stars');" onmouseout="ratings_off(4, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style={{ cursor: 'pointer', border : '0px'}} /> 
+                      <img alt="" id="rating_1592_1" src="https://www.netproreferral.com/blog/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"  title="1 Star" onmouseover="current_rating(1592, 1, '1 Star');" onmouseout="ratings_off(4, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style={{ cursor: 'pointer', border : '0px'}} />
+                      <img alt="" id="rating_1592_2" src="https://www.netproreferral.com/blog/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"  title="2 Stars" onmouseover="current_rating(1592, 2, '2 Stars');" onmouseout="ratings_off(4, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style={{ cursor: 'pointer', border : '0px'}} />
+                        <img alt="" id="rating_1592_3" src="https://www.netproreferral.com/blog/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"  title="3 Stars" onmouseover="current_rating(1592, 3, '3 Stars');" onmouseout="ratings_off(4, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style={{ cursor: 'pointer', border : '0px'}} />
+                          <img alt="" id="rating_1592_4" src="https://www.netproreferral.com/blog/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"  title="4 Stars" onmouseover="current_rating(1592, 4, '4 Stars');" onmouseout="ratings_off(4, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style={{ cursor: 'pointer', border : '0px'}} />
+                            <img alt="" id="rating_1592_5" src="https://www.netproreferral.com/blog/wp-content/plugins/wp-postratings/images/stars/rating_off.gif"  title="5 Stars" onmouseover="current_rating(1592, 5, '5 Stars');" onmouseout="ratings_off(4, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style={{ cursor: 'pointer', border : '0px'}} /> 
                             (<strong>1</strong> votes, average: <strong>4.00</strong> out of 5)<br /><span class="post-ratings-text" id="ratings_1592_text"></span>
                             <meta itemprop="headline" content="Write For Us" />
                               <meta itemprop="description" content="
@@ -59,19 +59,19 @@ If you are confident enough about your writing and looking ..." />
                         <meta itemprop="ratingCount" content="1" />
                         </div>
                         </div><div id="post-ratings-1592-loading" class="post-ratings-loading">
-            <img src="https://www.netproreferral.com/blog/wp-content/plugins/wp-postratings/images/loading.gif" width="16" height="16" class="post-ratings-image" />Loading...</div></li>
+            <img alt="" src="https://www.netproreferral.com/blog/wp-content/plugins/wp-postratings/images/loading.gif" width="16" height="16" class="post-ratings-image" />Loading...</div></li>
 										<li><span>by <b>Net Pro Referral</b></span></li>
-										<li><img src="https://www.netproreferral.com/blog/wp-content/themes/netproref/uploads/text.png" /><b>0</b></li>
-										<li><img src="https://www.netproreferral.com/blog/wp-content/themes/netproref/uploads/calender.png" /><b>22 Jun 2018</b></li>
+										<li><img alt="" src="https://www.netproreferral.com/blog/wp-content/themes/netproref/uploads/text.png" /><b>0</b></li>
+										<li><img alt="" src="https://www.netproreferral.com/blog/wp-content/themes/netproref/uploads/calender.png" /><b>22 Jun 2018</b></li>
 									</ul>
 									<h1 style={{ width : '100%'}}>Write For Us</h1>
 								</div>
 								
 								<div class="icons-new blog-social-links blog-detail-social">
 									<ul>
-										<li class="share-icons share-icons1592"><a class="gp-social" href="https://plus.google.com/share?url=https://www.netproreferral.com/blog/write-for-us/" target="_blank"></a></li>
-										<li class="share-icons share-icons1592"><a class="tw-social" href="https://twitter.com/share?url=https://www.netproreferral.com/blog/write-for-us/" target="_blank"></a></li>
-										<li class="share-icons share-icons1592"><a class="fb-social" href="https://www.facebook.com/sharer.php?u=https://www.netproreferral.com/blog/write-for-us/" target="_blank"></a></li>
+	<li class="share-icons share-icons1592"><a class="gp-social" href="https://plus.google.com/share?url=https://www.netproreferral.com/blog/write-for-us/" >{""}</a></li>
+										<li class="share-icons share-icons1592"><a class="tw-social" href="https://twitter.com/share?url=https://www.netproreferral.com/blog/write-for-us/" >{""}</a></li>
+										<li class="share-icons share-icons1592"><a class="fb-social" href="https://www.facebook.com/sharer.php?u=https://www.netproreferral.com/blog/write-for-us/" >{""}</a></li>
 									</ul>
 								</div>
 								
@@ -95,8 +95,8 @@ NetProReferral is open for guest writers and bloggers to publish their contents 
 <strong>1.</strong> Content must be&nbsp;unique; no copied content will be accepted. The content also has to be fresh and original. Content published somewhere else will not be accepted.</p>
 <p><strong>2.</strong> Content must be&nbsp;at least 1000 words.</p>
 <p><strong>3.</strong>&nbsp;Provide a short author bio&nbsp;along&nbsp;with a&nbsp;link to your website or any other online profile of yours.</p><div class="abt-adv vertical-cont-ad Blog-detail-ad"><div class="abt-img-top">
-  <img src="https://www.netproreferral.com/blog/wp-content/themes/netproref/uploads/blog-img-n.png" />
-  </div><div class="abt-img-btm"><p>GET MORE JOBS AND REFERRALS</p><a href="https://www.netproreferral.com/claim" target="_blank" class="active effect-main effect-ad-hover">Claim Your Profile</a></div></div><br />
+  <img alt="" src="https://www.netproreferral.com/blog/wp-content/themes/netproref/uploads/blog-img-n.png" />
+  </div><div class="abt-img-btm"><p>GET MORE JOBS AND REFERRALS</p><a href="https://www.netproreferral.com/claim" class="active effect-main effect-ad-hover">Claim Your Profile</a></div></div><br />
 <p><strong>4.</strong>&nbsp;Your content must include a no-follow link&nbsp;in the text.</p>
 <p><strong>5.</strong>&nbsp;If you provide images with your content, please also put the links to the sources of the images for proper accreditation.</p>
 <h2>Some Additional Guidelines for Writing the Content</h2>
@@ -159,21 +159,21 @@ Although these guidelines are not mandatory for you, by following these you will
 															<img width="80" height="80" src="https://s3-us-west-2.amazonaws.com/netpro-blog/blog/wp-content/uploads/2018/11/03113414/Top-7-Investment-Tips-to-Grow-Your-Law-Practice-150x150.jpg" class="attachment-80x80 size-80x80 wp-post-image" alt="grow law firm" />
                                 													<p><strong>Top 7 Investment Tips to Grow Your Law Practice</strong></p>
 						<span>
-              <img src="https://www.netproreferral.com/blog/wp-content/themes/netproref/uploads/text.png" />0, 04 Nov 2018</span>
+              <img alt="" src="https://www.netproreferral.com/blog/wp-content/themes/netproref/uploads/text.png" />0, 04 Nov 2018</span>
 						</a>
 					</div>
 									<div class="blog-recent">
 						<a href="https://www.netproreferral.com/blog/top-5-reasons-practice-losing-patients/">
 							<img width="80" height="80" src="https://s3-us-west-2.amazonaws.com/netpro-blog/blog/wp-content/uploads/2018/11/03110338/Top-5-Reasons-Your-Practice-Is-Losing-Patients-150x150.jpg" class="attachment-80x80 size-80x80 wp-post-image" alt="loosing patient on practice" />													
               <p><strong>Top 5 Reasons Your Practice Is Losing Patients</strong></p>
-						<span><img src="https://www.netproreferral.com/blog/wp-content/themes/netproref/uploads/text.png" />0, 03 Nov 2018</span>
+						<span><img alt="" src="https://www.netproreferral.com/blog/wp-content/themes/netproref/uploads/text.png" />0, 03 Nov 2018</span>
 						</a>
 					</div>
 									<div class="blog-recent">
 						<a href="https://www.netproreferral.com/blog/choose-business-structure-right/">
 															<img width="80" height="80" src="https://s3-us-west-2.amazonaws.com/netpro-blog/blog/wp-content/uploads/2018/10/31113802/How-to-Choose-What-Business-Structure-Is-Right-for-You-150x150.jpg" class="attachment-80x80 size-80x80 wp-post-image" alt="business structure" />												
                               	<p><strong>How to Choose What Business Structure Is Right for You</strong></p>
-						<span><img src="https://www.netproreferral.com/blog/wp-content/themes/netproref/uploads/text.png" />0, 31 Oct 2018</span>
+						<span><img alt="" src="https://www.netproreferral.com/blog/wp-content/themes/netproref/uploads/text.png" />0, 31 Oct 2018</span>
 						</a>
 					</div>
 				      				
@@ -190,7 +190,7 @@ Although these guidelines are not mandatory for you, by following these you will
 					</div>
 					<input style={{ display : 'none' }} type="submit" id="subs" value="Subscribe" />
 					<div class="btn-read-more">
-						<a class="sub-form effect-main effect-color-hover" onclick="$('#subs').trigger('click');" href="javascript:void(0);">Subscribe</a>
+						<a class="sub-form effect-main effect-color-hover" onclick="$('#subs').trigger('click');" >Subscribe</a>
 					</div>
 			</div>
 		</form>
@@ -199,7 +199,7 @@ Although these guidelines are not mandatory for you, by following these you will
 <div class="more_referral_popup" id="more_referral_popup" style={{ display : 'none' }} >
 	<div id="content-vert" class="content stud_pop_main" style={{ top : '25%'}} >
 		<div class="pop_cross">
-			<a class="cross"><img src="https://www.netproreferral.com/blog/wp-content/themes/netproref/uploads/multiply.png" /></a>
+			<a class="cross"><img alt="" src="https://www.netproreferral.com/blog/wp-content/themes/netproref/uploads/multiply.png" /></a>
 		</div>
 		
 		<div class="stud_pop_head">

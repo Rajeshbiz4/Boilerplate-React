@@ -84,11 +84,11 @@ class Header extends Component {
           </div>
           <div class="join-us-block">
                               <span>Get Referred by your mentors, peers and other experts</span>
-              <a class="claim-pop effect-main effect-color-hover" href="javascript:void(0);">  Claim Your Profile</a>
+              <a class="claim-pop effect-main effect-color-hover"  >  Claim Your Profile</a>
               <a  class="userlink login-pop" onClick={() =>this.setState({ showLogin : true})}> Login</a>
                                       </div>
           <div onclick="return hideDivTab();" class="arrow-up-link">
-            <a href="javascript:void(0);"></a>
+	<a>{""}</a>
           </div>
         </div>
       </div>
@@ -110,14 +110,14 @@ class Header extends Component {
 						</div>
 					</div>
 					<img onClick={() => this.setState({ showLogin : false })} class="cross-pop initial loaded" alt="Close" data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" data-was-processed="true" />
-					<form action="https://www.netproreferral.com/login" method="post" id="login_form" name="login_form" role="form" novalidate="novalidate">
+					<form>
 						<div class="login-form">
 							<h2><span class="join-first">Login</span><span class="join-second">Login With</span></h2>
 							<p style={{ textAlign : 'center', marginBottom : '7px !important' }} class="with-text">with</p>
 							<div class="social-login-icons">
-							<a title="Sign In with Facebook" href="javascript:void(0);" class="slogin logfb" onclick="return slogin('Facebook');"></a>&nbsp;
-							<a title="Sign In with Linkedin" href="javascript:void(0);" class="slogin loglink" onclick="return slogin('LinkedIn');"></a>&nbsp;
-							<a title="Sign In with Twitter" href="javascript:void(0);" class="slogin logtw" onclick="return slogin('Twitter');"></a>
+	<a title="Sign In with Facebook"   class="slogin logfb" onclick="return slogin('Facebook');">{""}</a>&nbsp;
+							<a title="Sign In with Linkedin"   class="slogin loglink" onclick="return slogin('LinkedIn');">{""}</a>&nbsp;
+							<a title="Sign In with Twitter"   class="slogin logtw" onclick="return slogin('Twitter');">{""}</a>
 							</div>
 							<p style={{ textAlign : 'center', marginBottom : '7px !important' }} >or</p>
 							<div class="outermsg outerdiv" style={{ display : 'done' }}>							
@@ -189,7 +189,7 @@ class Header extends Component {
 						</div>
 					</div>
 					<img alt="Close" onClick={() => this.setState({ showForgot : false })} class="cross-pop initial loaded" data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" data-was-processed="true" />
-					<form action="https://www.netproreferral.com/forgot-password" method="post" id="forget-form" name="forget-form" role="form" novalidate="novalidate">
+					<form >
 						<div class="login-form">
 							<h2>Forgot Password</h2>
 														<div class="outermsg outerdiv">
@@ -240,16 +240,16 @@ class Header extends Component {
 							</div>
 						</div>
 				<img class="cross-pop initial loaded" onClick={() => this.setState({ showSignup : false })} alt="Close" data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" data-was-processed="true" />
-				<form action="https://www.netproreferral.com/register" method="post" id="signup-form" name="signup-form" role="form" novalidate="novalidate">
+				<form >
 					<input type="hidden" id="segmentReg2" name="segmentReg2" value="" />
 					<input type="hidden" id="segmentReg1" name="segmentReg1" value="professionals" />
 					<div class="login-form reg-error-outer register-div">
 						<h2><span class="join-first"><span class="join-reg-pop">Join</span> Here</span><span class="join-second"><span class="join-reg-pop">Join</span> With</span></h2>
 						<p style={{ textAlign : 'center' }} class="with-text">with</p>
 						<div class="social-login-icons">
-						<a title="Sign Up with Facebook" href="javascript:void(0);" class="slogin logfb" onclick="return slogin('Facebook');"></a>&nbsp;
-						<a title="Sign Up with Linkedin" href="javascript:void(0);" class="slogin loglink" onclick="return slogin('LinkedIn');"></a>&nbsp;
-						<a title="Sign Up with Twitter" href="javascript:void(0);" class="slogin logtw" onclick="return slogin('Twitter');"></a>
+	<a title="Sign Up with Facebook"   class="slogin logfb" onclick="return slogin('Facebook');">{""}</a>&nbsp;
+						<a title="Sign Up with Linkedin"   class="slogin loglink" onclick="return slogin('LinkedIn');">{""}</a>&nbsp;
+						<a title="Sign Up with Twitter"   class="slogin logtw" onclick="return slogin('Twitter');">{""}</a>
 						</div>
 						<p style={{ textAlign : 'center' }}>or</p>
 						<div class="outermsg outerdiv" style={{ display : 'none' }}>							
@@ -295,7 +295,7 @@ class Header extends Component {
 							<div class="input-block forcheckbox">
 								<div class="check-block">
 									<div class="radio-block">
-										<input type="checkbox" value="" name="terms1" id="terms" /><label id="term-error" for="terms">Please agree to the <a rel="noopener" target="_blank" href="https://www.netproreferral.com/terms">Terms Of Service</a></label>
+										<input type="checkbox" value="" name="terms1" id="terms" /><label id="term-error" for="terms">Please agree to the <a rel="noopener noreferrer" target="_blank" href="https://www.netproreferral.com/terms">Terms Of Service</a></label>
 									</div>
 								</div>
 							</div>
@@ -303,7 +303,8 @@ class Header extends Component {
 						<input style={{ opacity : 0, marginTop : '-9px'}} type="checkbox" value="" name="terms" id="terms_hidden" />
 						
 						<div id="recaptchaReg">
-							<div class="g-recaptcha" data-sitekey="6LdnPSoUAAAAACqzNrEuhYORmuH_mVCvtM2dm0H5"><div style={{ width : '304px', height : '78px'}} ><div><iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdnPSoUAAAAACqzNrEuhYORmuH_mVCvtM2dm0H5&amp;co=aHR0cHM6Ly93d3cubmV0cHJvcmVmZXJyYWwuY29tOjQ0Mw..&amp;hl=en&amp;v=AFBwIe6h0oOL7MOVu88LHld-&amp;size=normal&amp;cb=we2yod2swyvo" width="304" height="78" role="presentation" name="a-skq00fqebjwt" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style={{ width : '250px', height : '40px', border: '1px solid rgb(193, 193, 193)', margin : '10px 25px', padding : '0px', resize: 'none', display : 'none' }} ></textarea></div><iframe style={{ display : 'none'}}></iframe></div>
+							<div class="g-recaptcha" data-sitekey="6LdnPSoUAAAAACqzNrEuhYORmuH_mVCvtM2dm0H5"><div style={{ width : '304px', height : '78px'}} ><div><iframe id="iframe1" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdnPSoUAAAAACqzNrEuhYORmuH_mVCvtM2dm0H5&amp;co=aHR0cHM6Ly93d3cubmV0cHJvcmVmZXJyYWwuY29tOjQ0Mw..&amp;hl=en&amp;v=AFBwIe6h0oOL7MOVu88LHld-&amp;size=normal&amp;cb=we2yod2swyvo" width="304" height="78" role="presentation" name="a-skq00fqebjwt" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" title="myFrame1"></iframe></div>
+							<textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style={{ width : '250px', height : '40px', border: '1px solid rgb(193, 193, 193)', margin : '10px 25px', padding : '0px', resize: 'none', display : 'none' }} ></textarea></div><iframe title="myFrame" id="sdfdfsd1" style={{ display : 'none'}}></iframe></div>
 							<input type="hidden" name="recatcha_check" value="0" />
 						</div>
 						<div class="full-block signUp-register">
