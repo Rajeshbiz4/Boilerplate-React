@@ -29,6 +29,7 @@ const INITIAL_STATE = {
   flag:false
 }
 
+
 export const forgotAction = payload => ({
   type: FORGOT,
   payload
@@ -42,21 +43,23 @@ export const forgotReset = payload => ({
   payload
 })
 
+
+
 export const loginAction = payload => ({
   type: LOGIN,
   payload
 })
-
 const loginSuccess = payload => ({
   type: LOGIN_SUCCESS,
   payload
 })
 
+
+
 export const registerAction = payload => ({
   type: REGISTER,
   payload
 })
-
 const registerSuccess = payload => ({
   type: REGISTER_SUCCESS,
   payload

@@ -5,12 +5,13 @@ import { NoDataFound } from '..'
 const Loader = (props) => {
   if (props.loading) {
     return (
-      <div className='loader'>
+      <div className='loader' >
         {/* <div className='spinner'>
           <div className='bounce1' />
           <div className='bounce2' />
           <div className='bounce3' />
         </div> */}
+        Loading...
       </div>
     )
   } else if (props.error) {

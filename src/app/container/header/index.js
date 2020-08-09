@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import 'react-dropdown/style.css';
 import { withRouter } from "react-router-dom";
-import { forgotAction, forgotReset } from './logic';
+import { forgotAction, forgotReset, loginAction } from './logic';
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
+// import {Loader} from '../../components';
 
  class Header extends Component {
   constructor(props){
@@ -12,7 +13,9 @@ import Modal from 'react-modal';
         showLogin : false,
         showForgot : false,
 		showSignup : false,
-		fogotEmail : 'abc@gamil.com'
+		fogotEmail : 'abc@gamil.com',
+		loginEmail: '',
+		loginPass:''
       };
   }
 
@@ -58,12 +61,16 @@ import Modal from 'react-modal';
 	  this.props.forgotAction({ 'email' : this.state.fogotEmail })
   }
 
+  onLoginClick = () => {
+	  console.log("onLoginClick")
+	this.props.loginAction({ email:"ajit121@yopmail.com", password:"admwer	in1" })
+}
+
   onForgotClose = () => {
 	  this.props.forgotReset();
   }
   
   render() {
-	  console.log("this.props.forgotData.data", this.props.forgotData.data);
     return (
       <Fragment>
       <header  className="fixheader">
@@ -86,9 +93,10 @@ import Modal from 'react-modal';
                 <li  className="res-menu">
                   <a  className="register-pop" >Register</a>
                 </li>
-                                        <li  className="active">
+                <li  className="active">
                   <a href="/">Home</a>
                 </li>
+				
                 <li  className="res-menu">
                 <a href="/about">About Us</a>
               </li>
@@ -107,9 +115,9 @@ import Modal from 'react-modal';
             </ul>
           </div>
           <div  className="join-us-block">
-                              <span>Get Referred by your mentors, peers and other experts</span>
-              <a  className="claim-pop effect-main effect-color-hover"  >  Claim Your Profile</a>
-              <a   className="userlink login-pop" onClick={() =>this.setState({ showLogin : true})}> Login</a>
+            <span>Get Referred by your mentors, peers and other experts</span>
+              <a className="claim-pop effect-main effect-color-hover"  >  Claim Your Profile</a>
+	<a className="userlink login-pop" onClick={() =>this.setState({ showLogin : true})}> {""}Login</a>
                                       </div>
           <div className="arrow-up-link">
 	<a>{""}</a>
@@ -135,32 +143,38 @@ import Modal from 'react-modal';
 						</div>
 					</div>
 					<img onClick={() => this.setState({ showLogin : false })}  className="cross-pop initial loaded" alt="Close" data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" data-was-processed="true" />
-					<form>
+					{/* <form> */}
 						<div  className="login-form">
 							<h2><span  className="join-first">Login</span><span  className="join-second">Login With</span></h2>
-							<p style={{ textAlign : 'center', marginBottom : '7px !important' }}  className="with-text">with</p>
+							{/* <p style={{ textAlign : 'center', marginBottom : '7px !important' }}  className="with-text">with</p>
 							<div  className="social-login-icons">
 	<a title="Sign In with Facebook"    className="slogin logfb" >{""}</a>&nbsp;
 							<a title="Sign In with Linkedin"    className="slogin loglink" >{""}</a>&nbsp;
 							<a title="Sign In with Twitter"    className="slogin logtw" >{""}</a>
 							</div>
-							<p style={{ textAlign : 'center', marginBottom : '7px !important' }} >or</p>
-							<div  className="outermsg outerdiv" style={{ display : 'done' }}>							
-								<span  className="msg-span" id="response-login-msg"></span>
-								<i  className="fa fa-close close className"></i>
-							</div>
-							<div  className="outermsg outerdiv1" style={{ display : 'done' }}>							
-								<span  className="msg-span1" id="response-login-msg1"></span>
-								<i  className="fa fa-close close className1"></i>
-							</div>
+							<p style={{ textAlign : 'center', marginBottom : '7px !important' }} >or</p> */}
+							
+
+
+							
+							{ this.props.loginData.flag && this.props.loginData.data.status === 'FAIL' ? <div class="alert-error">
+						<span class="closebtn" onClick={this.onForgotClose}>&times;</span> 
+						  {this.props.loginData.data.message}
+						</div> : null}
+
+						{ this.props.loginData.flag && this.props.loginData.data.status === 'SUCCESS' ? <div class="alert-sucess">
+						<span class="closebtn" onClick={this.onForgotClose}>&times;</span> 
+						  {this.props.loginData.data.message}
+						</div> : null}
+
 																													<div  className="full-block">
 								<div  className="input-block login-input email-input-div-bg">
-									<input type="email"  className="email-icon" aria-label="Email" placeholder="Email" name="username" id="username"  />
+									<input type="email"  className="email-icon" aria-label="Email" placeholder="Email" name="loginEmail" id="username" onChange={this.onChange} />
 								</div>
 							</div>
 							<div  className="full-block">
 								<div  className="input-block login-input pw-input-div-bg">
-									<input type="password"  className="key-icon" aria-label="Password" placeholder="Password"  name="password" />
+									<input type="password"  className="key-icon" aria-label="Password" placeholder="Password"  name="loginPass" onChange={this.onChange} />
 								</div>
 							</div>
 							<input type="hidden" id="segment1" name="segment1"  />
@@ -180,7 +194,7 @@ import Modal from 'react-modal';
 							</div>
 							<div  className="full-block">
 								<div  className="input-block">
-									<div  className="login-lock"><button type="submit"  className="login-btn input-effect" value="Login">Login</button></div>
+									<div  className="login-lock"><button type="submit"  className="login-btn input-effect" value="Login" onClick={this.onLoginClick}>Login</button></div>
 								</div>
 							</div>
 						</div>
@@ -188,7 +202,7 @@ import Modal from 'react-modal';
 						<a  className="forgot-password-link" onClick={() => this.showForgotPopup()}>Forgot password?</a>
 						<a  className="register-link" onClick={() => this.showSignupPopup()}>Claim a new profile</a>
 					</div>
-					</form>
+					{/* </form> */}
 				</div>
 			</div>
 		</div>
@@ -370,9 +384,10 @@ Header.propTypes = {}
 Header.defaultProps = {}
 
 const mapStateToProps = state => ({
-	forgotData : state.forgot
+	forgotData : state.forgot,
+	loginData : state.login
 })
   
-  export default withRouter(connect(mapStateToProps, { forgotAction, forgotReset })(Header))
+  export default withRouter(connect(mapStateToProps, { forgotAction, forgotReset, loginAction })(Header))
 
 // export default withRouter(Header)

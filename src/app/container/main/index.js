@@ -26,7 +26,7 @@ class Main extends Component {
          {/* <DashBoard /> */}
          <Router>
          <Switch>
-          <Route exact path="/">
+          <Route path="/">
             <Home />
           </Route>
           <Route path="/howitworks">
@@ -41,7 +41,6 @@ class Main extends Component {
             <Route path="/terms">
             <Terms />
             </Route>
-
             <Route path="/privacy">
             <Privacy />
             </Route>
