@@ -19,7 +19,7 @@ class ContactUS extends Component {
 		<div class="banner-inner">
 			<h1 class="banner-heading">Contact Us</h1>
 			<div class="heading-content-right">
-				<a class="active">Home</a>
+				<a href="/" class="active">Home</a>
 				<span>&nbsp;&gt;&nbsp;</span>
 				<a>Contact Us</a>
 			</div>

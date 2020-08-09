@@ -22,7 +22,7 @@ class Terms extends Component {
             <div class="banner-inner">
                 <h1 class="banner-heading">Terms Of Service</h1>
                 <div class="heading-content-right">
-                    <a href="https://www.netproreferral.com/" class="active">Home</a>
+                    <a href="/" class="active">Home</a>
                     <span>&nbsp;&gt;&nbsp;</span>
                     <a>Terms Of Service</a>
                 </div>

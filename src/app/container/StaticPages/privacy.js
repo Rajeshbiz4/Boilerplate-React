@@ -22,7 +22,7 @@ class Privacy extends Component {
 		<div class="banner-inner">
 			<h1 class="banner-heading">Privacy Policy</h1>
 			<div class="heading-content-right">
-				<a href="https://www.netproreferral.com/" class="active">Home</a>
+				<a href="/" class="active">Home</a>
 				<span>&nbsp;&gt;&nbsp;</span>
 				<a >Privacy Policy</a>
 			</div>

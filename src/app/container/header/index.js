@@ -92,7 +92,7 @@ import Modal from 'react-modal';
         <div  className="relative">
           <a title="How Net Pro Referral Works" href="https://www.netproreferral.com/how-it-works#video"  className="howit-banner effect-main ">how it works</a>
           <div  className="logo-block">
-            <a title="Net Pro Referral" href="https://www.netproreferral.com/"><img alt="" src="https://dcywhuojnzfz0.cloudfront.net/assets/images/logo.svg"  className="initial loading" data-was-processed="true" /></a>
+            <a title="Net Pro Referral" href="/"><img alt="" src="https://dcywhuojnzfz0.cloudfront.net/assets/images/logo.svg"  className="initial loading" data-was-processed="true" /></a>
           </div>
                     <a  className="l1-login claim-pop" >Claim <span>Your</span> Profile</a>
                             

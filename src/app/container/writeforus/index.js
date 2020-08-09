@@ -14,9 +14,9 @@ class WriteForUS extends Component {
         <div class="wrapper">
             <div class="breadcrums">
                 <ul>
-                    <li><a href="https://www.netproreferral.com/">home</a></li>
+                    <li><a href="/">home</a></li>
                     <li><span> &gt; </span></li>
-                    <li><a href="https://www.netproreferral.com/blog">blog</a></li>
+                    <li><a href="/blog">blog</a></li>
                     <li><span> &gt; </span></li>
                     <li><a>Write For Us</a></li>
                 </ul>

@@ -15,7 +15,7 @@ class Blog extends Component {
           <h1 class="blog-main-heading">blog</h1>
           <div class="breadcrums">
               <ul>
-                  <li><a href="https://www.netproreferral.com/">home</a></li>
+                  <li><a href="/">home</a></li>
                   <li><span> &gt; </span></li>
                   <li><a >blog</a></li>
               </ul>
