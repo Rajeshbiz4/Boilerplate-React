@@ -10,7 +10,7 @@ class WriteForUS extends Component {
   render() {
     return (
       <Fragment>
-        <div class="blog-wrapper">
+        <div class="blog-wrapper" style={{ marginTop : 50 }}  >
         <div class="wrapper">
             <div class="breadcrums">
                 <ul>
