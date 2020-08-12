@@ -1,8 +1,4 @@
+import Loader from "./Loader";
+import NoDataFound from "./NoDataFound";
 
-import Loader from './Loader';
-import NoDataFound from './NoDataFound';
-
-export {
-  Loader,
-  NoDataFound
-}
+export { Loader, NoDataFound };
