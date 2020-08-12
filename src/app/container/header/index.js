@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import 'react-dropdown/style.css';
 import { withRouter } from "react-router-dom";
-import { forgotAction, forgotReset, loginAction } from './logic';
+import { forgotAction, forgotReset, loginAction, registerAction } from './logic';
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
 // import {Loader} from '../../components';
@@ -13,9 +13,10 @@ import Modal from 'react-modal';
         showLogin : false,
         showForgot : false,
 		showSignup : false,
-		fogotEmail : 'abc@gamil.com',
+		fogotEmail : '',
 		loginEmail: '',
-		loginPass:''
+		loginPass:'',
+		login: true
       };
   }
 
@@ -24,7 +25,18 @@ import Modal from 'react-modal';
   }
 
   componentWillReceiveProps (nextProps) {
-   console.log("HEader",nextProps.forgotData);
+   console.log("componentWillReceiveProps",nextProps);
+   if(nextProps.loginData && nextProps.loginData.data && nextProps.loginData.data.status === 'SUCCESS' && this.state.login){
+	  this.setState({
+		login : false
+	  }, () => {
+		localStorage.setItem('login', nextProps.loginData.data);
+		// alert("Login sucesfull")
+		this.props.history.push("/dashboard");
+		window.location.reload();
+	  })
+	 
+   }
   }
 
   doHideScroll = () => {
@@ -76,15 +88,40 @@ import Modal from 'react-modal';
   }
 
   onLoginClick = () => {
-	  console.log("onLoginClick")
-	this.props.loginAction({ email:"ajit121@yopmail.com", password:"admwer	in1" })
+	console.log("onLoginClick")
+	this.props.loginAction({ email: this.state.loginEmail, password: this.state.loginPass })
 }
+
+	onRegisterSubmit = () => {
+	  console.log("onRegisterSubmit", this.state);
+	  this.props.registerAction({
+		password: this.state.password,
+		email: this.state.email,
+		firstName: this.state.name,
+		lastName: this.state.lastName,
+		companyName: "abc1123",
+		emailVisibilty: true,
+		profession: this.state.lastName
+	  });
+	}
 
   onForgotClose = () => {
 	  this.props.forgotReset();
   }
+
+  Dologout = () => {
+	  this.setState({
+		login: true
+	  }, () => {
+		localStorage.clear();
+		this.props.history.push("/");
+		window.location.reload();
+	  })
+  }
   
   render() {
+	  let data = localStorage.getItem('login');
+	  console.log("data", data);
     return (
       <Fragment>
       <header  className="fixheader">
@@ -128,11 +165,16 @@ import Modal from 'react-modal';
               </li>
             </ul>
           </div>
-          <div  className="join-us-block">
+          { !localStorage.getItem('login') ? <div  className="join-us-block">
             <span>Get Referred by your mentors, peers and other experts</span>
               <a className="claim-pop effect-main effect-color-hover"  >  Claim Your Profile</a>
 	<a className="userlink login-pop" onClick={() => this.showLoginPopup() }> {""}Login</a>
-                                      </div>
+            </div> :
+			<div class="join-us-block">
+																<span>Welcome,</span>										
+										<a class="userlink" href="https://www.netproreferral.com/user/myprofile"><b>Abc abc</b></a>									
+									<a class="effect-main effect-color-hover" onClick={this.Dologout} >Logout</a>
+	</div> }
           <div className="arrow-up-link">
 	<a>{""}</a>
           </div>
@@ -201,7 +243,7 @@ import Modal from 'react-modal';
 										<div  className="radio-block">
 											<input type="hidden" name="rememberme" id="rememberme"  />
 											<input type="checkbox"  name="rememberme1" id="rememberme1"  className="radio-cir" />
-											<label for="rememberme1">Remember me</label>
+											<label htmlFor="rememberme1">Remember me</label>
 										</div>
 									</div>
 								</div>
@@ -305,11 +347,23 @@ import Modal from 'react-modal';
 							</div>
 						</div>
 				<img    className="cross-pop initial loaded" onClick={() => this.onPopupClose()} alt="Close" data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" src="https://dcywhuojnzfz0.cloudfront.net/assets/images/cross-pop1.png" data-was-processed="true" />
-				<form >
+				{/* <form > */}
 					<input type="hidden" id="segmentReg2" name="segmentReg2" value="" />
 					<input type="hidden" id="segmentReg1" name="segmentReg1" value="professionals" />
 					<div    className="login-form reg-error-outer register-div">
-						<h2><span    className="join-first"><span    className="join-reg-pop">Join</span> Here</span><span    className="join-second"><span    className="join-reg-pop">Join</span> With</span></h2>
+						<h2><span    className="join-first"><span    className="join-reg-pop">Join</span> Here</span></h2>
+
+						{ this.props.registerData.flag && this.props.registerData.data.status === 'FAIL' ? <div class="alert-error">
+						<span class="closebtn" onClick={() => {}}>&times;</span> 
+						  {this.props.registerData.data.message}
+						</div> : null}
+
+						{ this.props.registerData.flag && this.props.registerData.data.status === 'SUCCESS' ? <div class="alert-sucess">
+						<span class="closebtn" onClick={() => {}}>&times;</span> 
+						  {this.props.registerData.data.message}
+						</div> : null}
+
+						{/* <span    className="join-second"><span    className="join-reg-pop">Join</span> With</span>
 						<p style={{ textAlign : 'center' }}    className="with-text">with</p>
 						<div    className="social-login-icons">
 	             <a title="Sign Up with Facebook"      className="slogin logfb" onclick="return slogin('Facebook');">{""}</a>&nbsp;
@@ -324,64 +378,65 @@ import Modal from 'react-modal';
 						<div     className="outermsg outerdiv1" style={{ display : 'none' }}>							
 							<span    className="msg-span1" id="response-login-msg-reg1"></span>
 							<i    className="fa fa-close close className1"></i>
-						</div>
+						</div>*/}
 						<div id="register-message" style={{ display : 'none' }}></div>
 						<div   className="full-block">
 							<div    className="input-block input-block fn-input-div-bg">
-								<input type="text" aria-label="First Name" placeholder="First Name" name="us_first_name" id="us_first_name" />
+								<input type="text" aria-label="First Name" placeholder="First Name" value={this.state.firstName} onChange={this.onChange} name="firstName" id="us_first_name" />
 							</div>
 						</div>
 						<div    className="full-block">
 							<div    className="input-block input-block fn-input-div-bg">
-								<input type="text" aria-label="Last Name" placeholder="Last Name" name="us_last_name" id="us_last_name" />
+								<input type="text" aria-label="Last Name" placeholder="Last Name" value={this.state.lastName} onChange={this.onChange} name="lastName" id="us_last_name" />
 							</div>
-						</div>
+						</div> 
 						<div    className="full-block">
 							<div for="user_cat"    className="input-block selt-aro">
-								<input id="user_cat_name"    className="select-block profession_name ui-autocomplete-input" name="user_cat_name" type="text" aria-label="Select Your Profession" placeholder="Select Your Profession" autocomplete="off" />
+								{/* <input id="user_cat_name"    className="select-block profession_name ui-autocomplete-input" value={this.state.profession} onChange={this.onChange} name="profession" type="text" aria-label="Select Your Profession" placeholder="Select Your Profession" autocomplete="off" /> */}
+								<input type="text" aria-label="Last Name" placeholder="Profession" value={this.state.profession} onChange={this.onChange} name="profession" id="profession" />
 							</div>
 						</div>
 						<div    className="full-block">
 							<div    className="input-block email-input-div-bg">
-								<input type="email"    className="email-icon register-email" aria-label="Email Address" placeholder="Email Address" name="email" id="email" value="" />
+								<input type="email"    className="email-icon register-email" aria-label="Email Address" placeholder="Email Address" value={this.state.email} onChange={this.onChange} name="email" id="email" />
 							</div>
 						</div>
 						<div    className="full-block">
 							<div    className="input-block pw-input-div-bg">
-								<input type="password"  className="key-icon" aria-label="Password" placeholder="Password" value="" name="password" id="password" />
+								<input type="password"  className="key-icon" aria-label="Password" placeholder="Password" value={this.state.password} onChange={this.onChange} name="password" id="password" />
 							</div>
 						</div>
 						<div  className="full-block">
 							<div  className="input-block pw-input-div-bg">
-								<input type="password"  className="key-icon" aria-label="Confirm Password" placeholder="Confirm Password" value="" name="cpassword" id="cpassword" />
+								<input type="password"  className="key-icon" aria-label="Confirm Password" placeholder="Confirm Password" value={this.state.cpassword} onChange={this.onChange}  name="cpassword" id="cpassword" />
 							</div>
 						</div>
 						<div  className="full-block">
 							<div  className="input-block forcheckbox">
 								<div  className="check-block">
 									<div  className="radio-block">
-										<input type="checkbox" value="" name="terms1" id="terms" /><label id="term-error" for="terms">Please agree to the <a rel="noopener noreferrer" target="_blank" href="https://www.netproreferral.com/terms">Terms Of Service</a></label>
+										<input type="checkbox" name="terms" id="terms" value={this.state.cpassword} onChange={this.onChange}  /><label id="term-error" for="terms">Please agree to the <a rel="noopener noreferrer" target="_blank" href="https://www.netproreferral.com/terms">Terms Of Service</a></label>
 									</div>
 								</div>
 							</div>
 						</div>
 						<input style={{ opacity : 0, marginTop : '-9px'}} type="checkbox" value="" name="terms" id="terms_hidden" />
 						
-						<div id="recaptchaReg">
+						{/* <div id="recaptchaReg">
 							<div  className="g-recaptcha" data-sitekey="6LdnPSoUAAAAACqzNrEuhYORmuH_mVCvtM2dm0H5"><div style={{ width : '304px', height : '78px'}} ><div><iframe id="iframe1" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdnPSoUAAAAACqzNrEuhYORmuH_mVCvtM2dm0H5&amp;co=aHR0cHM6Ly93d3cubmV0cHJvcmVmZXJyYWwuY29tOjQ0Mw..&amp;hl=en&amp;v=AFBwIe6h0oOL7MOVu88LHld-&amp;size=normal&amp;cb=we2yod2swyvo" width="304" height="78" role="presentation" name="a-skq00fqebjwt" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" title="myFrame1"></iframe></div>
 							<textarea id="g-recaptcha-response" name="g-recaptcha-response"  className="g-recaptcha-response" style={{ width : '250px', height : '40px', border: '1px solid rgb(193, 193, 193)', margin : '10px 25px', padding : '0px', resize: 'none', display : 'none' }} ></textarea></div><iframe title="myFrame" id="sdfdfsd1" style={{ display : 'none'}}></iframe></div>
 							<input type="hidden" name="recatcha_check" value="0" />
-						</div>
+						</div> */}
 						<div  className="full-block signUp-register">
 							<div  className="input-block">
-								<div  className="login-lock"><button type="submit"  className="login-btn input-effect" value="Signup" name="signUp" id="signUp">Signup</button></div>
+								<div  className="login-lock"><button onClick={this.onRegisterSubmit}  className="login-btn input-effect" value="Signup" name="signUp" id="signUp">Signup</button></div>
 							</div>
 						</div>
 					</div>
 					<div  className="forgot-links already-acc">
 						<a  className="login-link" onClick={() => this.showLoginPopup()}> Already have an account? </a>
 					</div>
-				</form>
+				{/* </form> */}
 			</div>
 		</div>
 		</div>
@@ -399,9 +454,10 @@ Header.defaultProps = {}
 
 const mapStateToProps = state => ({
 	forgotData : state.forgot,
-	loginData : state.login
+	loginData : state.login,
+	registerData : state.register
 })
   
-  export default withRouter(connect(mapStateToProps, { forgotAction, forgotReset, loginAction })(Header))
+  export default withRouter(connect(mapStateToProps, { forgotAction, forgotReset, loginAction, registerAction })(Header))
 
 // export default withRouter(Header)

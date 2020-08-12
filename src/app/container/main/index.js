@@ -14,8 +14,7 @@ import ContactUS from '../StaticPages/contact';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 class Main extends Component {
@@ -53,6 +52,9 @@ class Main extends Component {
             </Route>
             <Route path="/contactus">
             <ContactUS />
+            </Route>
+            <Route path="/dashboard">
+            <DashBoard />
             </Route>
             </Switch>
          </Router>

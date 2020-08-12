@@ -20,7 +20,7 @@ import { withRouter } from "react-router-dom";
    <div data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/banner2.jpg"  className="slider-bg lazy initial" data-was-processed="true" style={{ position: '', backgroundImage : 'url(&quot;https://dcywhuojnzfz0.cloudfront.net/assets/images/banner2.jpg&quot;)'}} >
 		<div>
 			<div >
-				<img src='https://dcywhuojnzfz0.cloudfront.net/assets/images/banner2.jpg' style={{height : '100vh', width : '100%' }}></img>
+				<img alt="" src='https://dcywhuojnzfz0.cloudfront.net/assets/images/banner2.jpg' style={{height : '100vh', width : '100%' }}></img>
 			</div>
 		</div>
 
@@ -54,7 +54,7 @@ import { withRouter } from "react-router-dom";
              <div   className="netpro-directory">
                   <div   className="adv-dir-head">Be Found on our map</div>
                   <div   className="calltoaction-reg calltoaction-center bfoundbtn">
-                      <a   className="claim-pop effect-main effect-ad-hover" href="javascript:void(0);">Claim Your Profile</a>
+                      <a   className="claim-pop effect-main effect-ad-hover" >Claim Your Profile</a>
                       </div>
                       </div>
                       <div onclick="searchTerm();"   className="variantc-map">
