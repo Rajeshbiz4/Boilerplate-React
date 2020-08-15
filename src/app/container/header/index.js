@@ -21,8 +21,12 @@ class Header extends Component {
       loginEmail: "",
       loginPass: "",
       login: true,
+      terms: false,
+      captcha: false,
       formErros: {
-        fogotEmail : ''
+        fogotEmail : '',
+        loginEmail: "",
+        loginPass: "",
       }
     };
   }
@@ -49,6 +53,15 @@ class Header extends Component {
         }
       );
     }
+  }
+
+  toggle = () => {
+    this.setState({ terms : !this.state.terms}, () => console.log(this.state.terms));
+  }
+
+
+  toggle1 = () => {
+    this.setState({ captcha : !this.state.captcha}, () => console.log(this.state.captcha));
   }
 
   doHideScroll = () => {
@@ -103,6 +116,7 @@ class Header extends Component {
 
   onChange = (e) => {
     const { name, value } = e.target;
+    console.log(name, value);
     this.setState({
       [name]: value,
     })
@@ -138,6 +152,169 @@ class Header extends Component {
     }
   }
 
+  IsLoginValid = (email, pass) => {
+    this.setState({
+      formErros : {
+        loginEmail : ''
+      }
+    })
+    let filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if(email){
+    } else {
+      this.setState({
+        formErros : {
+          loginEmail :  'Please enter your email address.'
+        }
+      })
+      return false
+    }
+
+    if (filter.test(email)) {
+    } else {
+      this.setState({
+        formErros : {
+          loginEmail :  'Please enter a valid email address.'
+        }
+      })
+      return false
+    }
+
+    if(pass){
+    } else {
+      this.setState({
+        formErros : {
+          loginPass :  'Please enter your email password.'
+        }
+      })
+      return false
+    }
+    return true;
+  }
+
+  
+
+  IsRegistrationValid = (obj) => {
+    let filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    let fiterPass = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+    const regex = RegExp('^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$');
+
+    if(obj.firstName){
+    } else {
+      this.setState({
+        formErros : {
+          firstName :  'Please enter first name.'
+        }
+      })
+      return false
+    }
+
+    if(obj.lastName){
+    } else {
+      this.setState({
+        formErros : {
+          lastName :  'Please enter last name.'
+        }
+      })
+      return false
+    }
+
+  
+    if(obj.profession){
+    } else {
+      this.setState({
+        formErros : {
+          profession :  'Please enter profession.'
+        }
+      })
+      return false
+    }
+
+    if(obj.email){
+    } else {
+      this.setState({
+        formErros : {
+          email :  'Please enter email address.'
+        }
+      })
+      return false
+    }
+
+
+    if (filter.test(obj.email)) {
+    } else {
+      this.setState({
+        formErros : {
+          email :  'Please enter a valid email address.'
+        }
+      });
+      return false;
+    };
+
+    if(obj.password){
+    } else {
+      this.setState({
+        formErros : {
+          password :  'Please enter password.'
+        }
+      })
+      return false
+    }
+
+    // if (regex.test(obj.password)) {
+    // } else {
+    //   this.setState({
+    //     formErros : {
+    //       password :  'Please enter password with 8 charecters, with atleast 1 uppercase, 1 lowercase, 1 special character, 1 number.'
+    //     }
+    //   });
+    //   return false;
+    // };
+
+    if(obj.cpassword){
+    } else {
+      this.setState({
+        formErros : {
+          cpassword :  'Please enter confirm password.'
+        }
+      })
+      return false
+    }
+
+    if(obj.cpassword && obj.password && obj.cpassword === obj.password){
+    } else {
+      this.setState({
+        formErros : {
+          cpassword :  'Please enter the same password.'
+        }
+      })
+      return false
+    }
+
+    if(obj.terms){
+    } else {
+      this.setState({
+        formErros : {
+          terms :  'Please accept Terms Of Service.'
+        }
+      })
+      return false
+    }
+
+    // if(obj.captcha){
+    // } else {
+    //   this.setState({
+    //     formErros : {
+    //       captcha :  'Please check the checkbox.'
+    //     }
+    //   })
+    //   return false
+    // }
+
+    return true;
+  }
+
+
+
 
   onForgotSubmit = () => { 
       if(this.IsValid(this.state.fogotEmail)){
@@ -146,23 +323,27 @@ class Header extends Component {
   };
 
   onLoginClick = () => {
+    if(this.IsLoginValid(this.state.loginEmail, this.state.loginPass)){
     this.props.loginAction({
       email: this.state.loginEmail,
       password: this.state.loginPass,
     });
+  }
   };
 
   onRegisterSubmit = () => {
-
+    if(this.IsRegistrationValid(this.state)){
+      console.log("Valid Registration")
     this.props.registerAction({
       password: this.state.password,
       email: this.state.email,
-      firstName: this.state.name,
+      name: this.state.name,
       lastName: this.state.lastName,
       companyName: "abc1123",
       emailVisibilty: true,
       profession: this.state.lastName,
     });
+  }
   };
 
   onForgotClose = () => {
@@ -184,7 +365,6 @@ class Header extends Component {
 
   render() {
     let data = localStorage.getItem("login");
-    console.log("data", data);
     return (
       <Fragment>
         <header className="fixheader">
@@ -356,6 +536,7 @@ class Header extends Component {
                             id="username"
                             onChange={this.onChange}
                           />
+                           <span className='ErrorText'>{this.state.formErros.loginEmail}</span>
                         </div>
                       </div>
                       <div className="full-block">
@@ -368,6 +549,7 @@ class Header extends Component {
                             name="loginPass"
                             onChange={this.onChange}
                           />
+                          <span className='ErrorText'>{this.state.formErros.loginPass}</span>
                         </div>
                       </div>
                       <input type="hidden" id="segment1" name="segment1" />
@@ -603,7 +785,7 @@ class Header extends Component {
                           <span class="closebtn" onClick={() => {}}>
                             &times;
                           </span>
-                          {this.props.registerData.data.message}
+                          {this.props.registerData.data.message || this.props.registerData.data.detailedMessage}
                         </div>
                       ) : null}
 
@@ -648,6 +830,7 @@ class Header extends Component {
                             name="firstName"
                             id="us_first_name"
                           />
+                           <span className='ErrorText'>{this.state.formErros.firstName}</span>
                         </div>
                       </div>
                       <div className="full-block">
@@ -661,6 +844,7 @@ class Header extends Component {
                             name="lastName"
                             id="us_last_name"
                           />
+                           <span className='ErrorText'>{this.state.formErros.lastName}</span>
                         </div>
                       </div>
                       <div className="full-block">
@@ -675,6 +859,7 @@ class Header extends Component {
                             name="profession"
                             id="profession"
                           />
+                           <span className='ErrorText'>{this.state.formErros.profession}</span>
                         </div>
                       </div>
                       <div className="full-block">
@@ -689,6 +874,7 @@ class Header extends Component {
                             name="email"
                             id="email"
                           />
+                          <span className='ErrorText'>{this.state.formErros.email}</span>
                         </div>
                       </div>
                       <div className="full-block">
@@ -703,6 +889,7 @@ class Header extends Component {
                             name="password"
                             id="password"
                           />
+                           <span className='ErrorText'>{this.state.formErros.password}</span>
                         </div>
                       </div>
                       <div className="full-block">
@@ -717,6 +904,7 @@ class Header extends Component {
                             name="cpassword"
                             id="cpassword"
                           />
+                           <span className='ErrorText'>{this.state.formErros.cpassword}</span>
                         </div>
                       </div>
                       <div className="full-block">
@@ -727,9 +915,11 @@ class Header extends Component {
                                 type="checkbox"
                                 name="terms"
                                 id="terms"
-                                value={this.state.cpassword}
-                                onChange={this.onChange}
+                                checked={this.state.terms}
+                                value={this.state.terms}
+                                onChange={this.toggle}
                               />
+                               
                               <label id="term-error" for="terms">
                                 Please agree to the{" "}
                                 <a
@@ -740,6 +930,7 @@ class Header extends Component {
                                   Terms Of Service
                                 </a>
                               </label>
+                              <span className='ErrorText'>{this.state.formErros.terms}</span>
                             </div>
                           </div>
                         </div>
@@ -747,11 +938,13 @@ class Header extends Component {
                       <input
                         style={{ opacity: 0, marginTop: "-9px" }}
                         type="checkbox"
-                        value=""
-                        name="terms"
-                        id="terms_hidden"
+                        checked={this.state.captcha}
+                        value={this.state.captcha}
+                        name="captcha"
+                        id="captcha"
+                        onChange={this.toggle1}
                       />
-
+                    <span className='ErrorText'>{this.state.formErros.captcha}</span>
                       {/* <div id="recaptchaReg">
 							<div  className="g-recaptcha" data-sitekey="6LdnPSoUAAAAACqzNrEuhYORmuH_mVCvtM2dm0H5"><div style={{ width : '304px', height : '78px'}} ><div><iframe id="iframe1" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdnPSoUAAAAACqzNrEuhYORmuH_mVCvtM2dm0H5&amp;co=aHR0cHM6Ly93d3cubmV0cHJvcmVmZXJyYWwuY29tOjQ0Mw..&amp;hl=en&amp;v=AFBwIe6h0oOL7MOVu88LHld-&amp;size=normal&amp;cb=we2yod2swyvo" width="304" height="78" role="presentation" name="a-skq00fqebjwt" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" title="myFrame1"></iframe></div>
 							<textarea id="g-recaptcha-response" name="g-recaptcha-response"  className="g-recaptcha-response" style={{ width : '250px', height : '40px', border: '1px solid rgb(193, 193, 193)', margin : '10px 25px', padding : '0px', resize: 'none', display : 'none' }} ></textarea></div><iframe title="myFrame" id="sdfdfsd1" style={{ display : 'none'}}></iframe></div>
