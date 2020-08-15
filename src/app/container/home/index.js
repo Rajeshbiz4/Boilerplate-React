@@ -30,6 +30,24 @@ class Home extends Component {
               ></img>
             </div>
           </div>
+          <div>
+          <div className="netpro-directory">
+            <div className="adv-dir-head">Be Found on our map</div>
+            <div className="calltoaction-reg calltoaction-center bfoundbtn">
+              <a className="claim-pop effect-main effect-ad-hover">
+                Claim Your Profile
+              </a>
+            </div>
+          </div>
+          <div className="variantc-map">
+            <img
+              alt=""
+              src="https://www.netproreferral.com/assets/images/variant-c.jpg"
+              className="initial loading"
+              data-was-processed="true"
+            />
+          </div>
+        </div> 
 
           <section className="form-block home-form-block ">
             <div className="wrapper">
@@ -76,7 +94,9 @@ class Home extends Component {
           </section>
         </div>
 
-        <div>
+
+
+        {/* <div>
           <div className="netpro-directory">
             <div className="adv-dir-head">Be Found on our map</div>
             <div className="calltoaction-reg calltoaction-center bfoundbtn">
@@ -85,7 +105,7 @@ class Home extends Component {
               </a>
             </div>
           </div>
-          <div onclick="searchTerm();" className="variantc-map">
+          <div className="variantc-map">
             <img
               alt=""
               src="https://www.netproreferral.com/assets/images/variant-c.jpg"
@@ -93,7 +113,7 @@ class Home extends Component {
               data-was-processed="true"
             />
           </div>
-        </div>
+        </div> */}
       </Fragment>
     );
   }

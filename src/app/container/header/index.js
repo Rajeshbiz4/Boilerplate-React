@@ -106,7 +106,7 @@ class Header extends Component {
     this.setState({
       [name]: value,
     })
-    
+
   };
 
   IsValid = email => {
@@ -134,7 +134,6 @@ class Header extends Component {
           fogotEmail :  'Please enter a valid email address.'
         }
       })
-      console.log("InValid")
       return false
     }
   }
@@ -147,7 +146,6 @@ class Header extends Component {
   };
 
   onLoginClick = () => {
-    console.log("onLoginClick");
     this.props.loginAction({
       email: this.state.loginEmail,
       password: this.state.loginPass,
@@ -155,7 +153,7 @@ class Header extends Component {
   };
 
   onRegisterSubmit = () => {
-    console.log("onRegisterSubmit", this.state);
+
     this.props.registerAction({
       password: this.state.password,
       email: this.state.email,
