@@ -3210,4 +3210,8 @@ td:focus {
   /* overflow: hidden; */
   top: 25px !important;
 }
+.ErrorText{
+  color: red !important;
+  margin-top: 2px;
+}
 

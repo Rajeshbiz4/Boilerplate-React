@@ -21,6 +21,9 @@ class Header extends Component {
       loginEmail: "",
       loginPass: "",
       login: true,
+      formErros: {
+        fogotEmail : ''
+      }
     };
   }
 
@@ -99,13 +102,48 @@ class Header extends Component {
   };
 
   onChange = (e) => {
+    const { name, value } = e.target;
     this.setState({
-      [e.target.name]: e.target.value,
-    });
+      [name]: value,
+    })
+    
   };
 
-  onForgotSubmit = () => {
-    this.props.forgotAction({ email: this.state.fogotEmail });
+  IsValid = email => {
+    this.setState({
+      formErros : {
+        fogotEmail : ''
+      }
+    })
+    let filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if(email){
+    } else {
+      this.setState({
+        formErros : {
+          fogotEmail :  'Please enter your email address.'
+        }
+      })
+      return false
+    }
+
+    if (filter.test(email)) {
+      return true;
+    } else {
+      this.setState({
+        formErros : {
+          fogotEmail :  'Please enter a valid email address.'
+        }
+      })
+      console.log("InValid")
+      return false
+    }
+  }
+
+
+  onForgotSubmit = () => { 
+      if(this.IsValid(this.state.fogotEmail)){
+        this.props.forgotAction({ email: this.state.fogotEmail });
+      }
   };
 
   onLoginClick = () => {
@@ -474,8 +512,10 @@ class Header extends Component {
                             value={this.state.fogotEmail}
                             onChange={this.onChange}
                           />
+                           <span className='ErrorText'>{this.state.formErros.fogotEmail}</span>
                         </div>
                       </div>
+                     
                       <div className="full-block">
                         <div className="input-block">
                           <div className="login-lock">
