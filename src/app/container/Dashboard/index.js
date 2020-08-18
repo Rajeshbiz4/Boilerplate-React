@@ -1,10 +1,17 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { parse } from "query-string";
 import { fetchUserAction } from "./logic";
-import User from "../user";
+// import User from "../user";
+import Profile from './profile';
+import EditProfile from './editprofile';
+import Password from './changePassword';
+import GetReferred from './getReferred';
+import ReferralsList from './referrllist';
+import Messages from './messages';
+
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const styleObj = {
   padding: "10px",
@@ -14,43 +21,87 @@ const styleObj = {
 class DashBoard extends Component {
   constructor(props) {
     super(props);
-    const q = parse(this.props.location.search);
+   
     this.state = {
-      query: q.q || "",
+      profile : true,
+      editprofile: false,
+      cpassword : false,
+      getreferred : false,
+      referrallist : false,
+      messages : false
     };
   }
 
-  componentDidMount() {
-    if (this.state.query) {
-      this.props.fetchUserAction({ q: this.state.query });
-    }
+  onProfileClick = () => {
+    this.setState({
+      profile : true,
+      editprofile: false,
+      cpassword : false,
+      getreferred : false,
+      referrallist : false,
+      messages : false
+    })
   }
 
-  componentWillReceiveProps(nextProps) {
-    const oldQuery = parse(this.props.location.search);
-    const newQuery = parse(nextProps.location.search);
-    if (oldQuery.q !== newQuery.q) {
-      this.setState(
-        {
-          query: newQuery.q,
-        },
-        () => {
-          this.props.fetchUserAction({ q: this.state.query });
-        }
-      );
-    }
+  onEditprofileClick = () => {
+   this.setState({
+    profile : false,
+    editprofile: true,
+    cpassword : false,
+    getreferred : false,
+    referrallist : false,
+    messages : false
+   })
   }
 
-  renderList() {
-    if (this.props.gene.flag) {
-      return this.props.gene.data.map((item, index) => (
-        <User key={index} item={item} />
-      ));
-    }
-    return null;
+  onCpasswordClick = () => {
+    this.setState({
+      profile : false,
+      editprofile: false,
+      cpassword : true,
+      getreferred : false,
+      referrallist : false,
+      messages : false
+     })
   }
+
+  onGetReferredClick = () => {
+    this.setState({
+      profile : false,
+      editprofile: false,
+      cpassword : false,
+      getreferred : true,
+      referrallist : false,
+      messages : false
+     })
+  }
+  
+  onReferrallistClick = () => {
+    this.setState({
+      profile : false,
+      editprofile: false,
+      cpassword : false,
+      getreferred : false,
+      referrallist : true,
+      messages : false
+     })
+  }
+
+  onMessagesClick = () => {
+    this.setState({
+      profile : false,
+      editprofile: false,
+      cpassword : false,
+      getreferred : false,
+      referrallist : false,
+      messages : true
+     })
+  }
+
+
   render() {
     return (
+      <Fragment>
       <div style={styleObj}>
         <section class="my-profile">
           <div class="wrapper">
@@ -126,27 +177,24 @@ class DashBoard extends Component {
                           <div class="inviteRef"></div>
                         </div>
                         <ul>
-                          <li class="activeli" id="go-to-msg1">
-                            <a
-                              class="active"
-                              href="https://www.netproreferral.com/user/myprofile"
-                            >
+                          <li className={this.state.profile ? 'activeli' : '' } id="go-to-msg1">
+                            <a className={this.state.profile ? 'active' : '' } onClick={this.onProfileClick} >
                               My Profile{" "}
                             </a>
                           </li>
-                          <li>
-                            <a href="https://www.netproreferral.com/user/editprofile">
+                          <li className={this.state.editprofile ? 'activeli' : '' } >
+                            <a className={this.state.editprofile ? 'active' : '' } onClick={this.onEditprofileClick}>
                               Edit Profile{" "}
                             </a>
                           </li>
-                          <li>
-                            <a href="https://www.netproreferral.com/user/changepassword">
+                          <li className={this.state.cpassword ? 'activeli' : '' }>
+                            <a className={this.state.cpassword ? 'active' : '' } onClick={this.onCpasswordClick}>
                               {" "}
                               Change Password
                             </a>
                           </li>
-                          <li id="get-ref-trip" class="">
-                            <a href="https://www.netproreferral.com/user/sendinvite">
+                          <li className={this.state.getreferred ? 'activeli' : '' } id="get-ref-trip" class="">
+                            <a className={this.state.getreferred ? 'active' : '' }  onClick={this.onGetReferredClick}>
                               {" "}
                               Get Referred
                             </a>
@@ -164,13 +212,13 @@ class DashBoard extends Component {
                               />
                             </div>
                           </li>
-                          <li>
-                            <a href="https://www.netproreferral.com/user/listreferral">
+                          <li className={this.state.referrallist ? 'activeli' : '' }>
+                            <a className={this.state.referrallist ? 'active' : '' } onClick={this.onReferrallistClick}>
                               Referrals List
                             </a>
                           </li>
-                          <li>
-                            <a href="https://www.netproreferral.com/user/messages">
+                          <li className={this.state.messages ? 'activeli' : '' }>
+                            <a className={this.state.messages ? 'active' : '' } onClick={this.onMessagesClick}>
                               Messages
                             </a>
                           </li>
@@ -386,145 +434,14 @@ class DashBoard extends Component {
                           </div>
                         </div>
                       </div>
-
                       <div class="content-profile-block">
-                        <div class="basic-info">
-                          <div class="basic-info-heading">
-                            <h1>Basic information</h1>
-                          </div>
-                          <p>--</p>
-                        </div>
-                        <div class="basic-info">
-                          <div class="basic-info-heading">
-                            <h1>Additional information</h1>
-                          </div>
-                          <div class="info-detail">
-                            <div class="info-detail-left">
-                              <div class="detail-head">Address</div>
-                              <div class="detail-content">
-                                <div class="edit-icon">
-                                  <a href="https://www.netproreferral.com/user/editprofile/2">
-                                    <img
-                                      alt=""
-                                      data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/edit.png"
-                                      class="initial loaded"
-                                      src="https://dcywhuojnzfz0.cloudfront.net/assets/images/edit.png"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                </div>
-                                <p>-</p>
-                              </div>
-                            </div>
-                            <div class="info-detail-left">
-                              <div class="detail-head">Phone Number</div>
-                              <div class="detail-content">
-                                <div class="edit-icon">
-                                  <a href="https://www.netproreferral.com/user/editprofile/3">
-                                    <img
-                                      alt=""
-                                      data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/edit.png"
-                                      class="initial loaded"
-                                      src="https://dcywhuojnzfz0.cloudfront.net/assets/images/edit.png"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                </div>
-                                <p>-</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="info-detail">
-                            <div class="info-detail-left">
-                              <div class="detail-head">Occupation</div>
-                              <div class="detail-content">
-                                <div class="edit-icon">
-                                  <a href="https://www.netproreferral.com/user/editprofile/4">
-                                    <img
-                                      alt=""
-                                      data-src="https://dcywhuojnzfz0.cloudfront.net/assets/images/edit.png"
-                                      class="initial loaded"
-                                      src="https://dcywhuojnzfz0.cloudfront.net/assets/images/edit.png"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                </div>
-                                <p>software engineer</p>
-                              </div>
-                            </div>
-                            <div class="info-detail-left">
-                              <div class="detail-head">Email Address</div>
-                              <div class="detail-content">
-                                <p>
-                                  <a title="admin123@yopmail.com">
-                                    admin123@yopmail.com
-                                  </a>
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="basic-info" style={{ marginTop: "20px" }}>
-                          <div class="basic-info-heading advertiseYou-block">
-                            <h1>Advertise yourself on</h1>
-                            <p class="advertise-social">
-                              <a
-                                title="Facebook"
-                                class="fb-adver"
-                                onclick="sharePop('Facebook','https://www.netproreferral.com/m/abc-abc-edefea300ddc978aac095741f5667534');"
-                                alt=""
-                              >
-                                {""}
-                              </a>
-                              &nbsp;
-                              <a
-                                title="Linkedin"
-                                class="lin-adver"
-                                onclick="sharePop('Linkedin','https://www.netproreferral.com/m/abc-abc-edefea300ddc978aac095741f5667534');"
-                                alt=""
-                              >
-                                {""}
-                              </a>
-                              &nbsp;
-                              <a
-                                title="Twitter"
-                                class="twi-adver"
-                                onclick="sharePop('Twitter','https://www.netproreferral.com/m/abc-abc-edefea300ddc978aac095741f5667534');"
-                                alt=""
-                              >
-                                {""}
-                              </a>
-                              &nbsp;
-                              <a
-                                title="Google"
-                                class="goggle-adver"
-                                onclick="sharePop('Google','https://www.netproreferral.com/m/abc-abc-edefea300ddc978aac095741f5667534');"
-                                alt=""
-                              >
-                                {""}
-                              </a>
-                              &nbsp;&nbsp;
-                            </p>
-                            <a title="Get Referred" class="moreRefMp">
-                              {""}
-                            </a>
-                          </div>
-
-                          <p>
-                            <span
-                              style={{
-                                fontSize: "13px",
-                                wordWrap: "break-word",
-                                wordBreak: "break-all",
-                              }}
-                            >
-                              Public profile URL:
-                              https://www.netproreferral.com/m/abc-abc-edefea300ddc978aac095741f5667534
-                            </span>
-                          </p>
-                        </div>
-                      </div>
+                      { this.state.profile ? <Profile /> : null }
+                      { this.state.editprofile ? <EditProfile /> : null }
+                      { this.state.cpassword ?<Password />: null }
+                      { this.state.getreferred ?<GetReferred />: null }
+                      { this.state.referrallist ?<ReferralsList />: null }
+                      { this.state.messages ? <Messages />: null }
+                      </div> 
                     </div>
                   </div>
                 </div>
@@ -533,6 +450,7 @@ class DashBoard extends Component {
           </div>
         </section>
       </div>
+      </Fragment>
     );
   }
 }

@@ -7,46 +7,21 @@ import { withRouter } from "react-router-dom";
 class TabView extends Component {
   constructor(props) {
     super(props);
-    const query = parse(this.props.location.search);
-    if (!query.currentTab) {
-      const q = stringify({
-        ...parse(this.props.location.search),
-        currentTab: this.props.data[0].value,
-      });
-      this.props.history.push(`?${q}`);
-    }
+    
     this.state = {
-      currentTab:
-        this.getCurrentTabIndex(parse(this.props.location.search).currentTab) ||
-        0,
+      currentTab:0
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    const oldTab = parse(this.props.location.search).currentTab;
-    const newTab = parse(nextProps.location.search).currentTab;
-    if (oldTab !== newTab) {
-      this.setCurrentTab(newTab);
-    }
-  }
+  
 
   setCurrentTab(currentTab) {
     this.setState({
-      currentTab: this.getCurrentTabIndex(currentTab),
+      currentTab
     });
   }
 
-  getCurrentTabIndex(value) {
-    return this.props.data.findIndex((tab) => tab.value === value);
-  }
-
-  setStateParams(index) {
-    const q = stringify({
-      ...parse(this.props.location.search),
-      currentTab: this.props.data[index].value,
-    });
-    this.props.history.push(`?${q}`);
-  }
+  
 
   renderTabList() {
     return this.props.data.map((item, i) => <Tab key={i}>{item.name}</Tab>);
@@ -54,7 +29,7 @@ class TabView extends Component {
 
   renderContentList() {
     return this.props.data.map((item, i) => (
-      <TabPanel key={i}>{/* {this.props.childComponent} */}</TabPanel>
+      <TabPanel key={i}> {i} </TabPanel>
     ));
   }
 
@@ -63,7 +38,7 @@ class TabView extends Component {
       <div>
         <Tabs
           selectedIndex={this.state.currentTab}
-          onSelect={(index) => this.setStateParams(index)}
+          onSelect={(index) => this.setCurrentTab(index)}
         >
           <TabList>{this.renderTabList()}</TabList>
           <div className="tab-container tab-ontology tab-content">

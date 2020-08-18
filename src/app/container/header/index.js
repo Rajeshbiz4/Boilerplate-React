@@ -18,8 +18,8 @@ class Header extends Component {
       showForgot: false,
       showSignup: false,
       fogotEmail: "",
-      loginEmail: "",
-      loginPass: "",
+      loginEmail: 'ajit121@yopmail.com',
+      loginPass: 'admin1',
       login: true,
       terms: false,
       captcha: false,
@@ -129,7 +129,7 @@ class Header extends Component {
         fogotEmail : ''
       }
     })
-    let filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    let filter = /[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if(email){
     } else {
       this.setState({
@@ -158,7 +158,7 @@ class Header extends Component {
         loginEmail : ''
       }
     })
-    let filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    let filter = /[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if(email){
     } else {
       this.setState({
@@ -194,9 +194,8 @@ class Header extends Component {
   
 
   IsRegistrationValid = (obj) => {
-    let filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    let fiterPass = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
-    const regex = RegExp('^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$');
+    let filter = RegExp('[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:[a-zA-Z0-9-]+)*$');
+    // const regex = RegExp('^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$');
 
     if(obj.firstName){
     } else {
